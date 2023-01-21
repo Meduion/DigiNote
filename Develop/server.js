@@ -22,6 +22,11 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+// Wildcard route to direct any unspecified path back to index.html
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
 // Notify in console of port app is listening on.
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)

@@ -1,17 +1,17 @@
-const notes = require('express').Router();
+const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
-const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile } = require('../../helpers/fsUtils');
 
 // Following section re-used from 11-express mini project
 
 // GET Route for retrieving all the notes
-notes.get('/', (req, res) => {
-    console.info(`${req.method} request received for notes`);
+router.get('/', (req, res) => {
+    console.info(`${req.method} request received for router`);
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));   
 });
 
 // GET Route for a specific note
-notes.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
@@ -24,10 +24,10 @@ notes.get('/:id', (req, res) => {
   });
 
 // POST Route for a new note
-notes.post('/', (req, res) => {
+router.post('/', (req, res) => {
     console.log(req.body);
   
-    const { title, text, } = req.body;
+    const { title, text } = req.body;
   
     if (req.body) {
       const newNote = {
@@ -44,7 +44,7 @@ notes.post('/', (req, res) => {
   });
 
 // DELETE Route for a specific note
-notes.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
@@ -60,4 +60,4 @@ notes.delete('/:id', (req, res) => {
     });
 });
 
-module.exports = notes;
+module.exports = router;

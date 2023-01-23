@@ -16,6 +16,8 @@
   
   https://diginote.herokuapp.com/
 
+  ![Image of DigiNote app](./images/diginote.jpg)
+
   ## License
 
   This project is licensed under BSD 3-Clause. For more information (if applicable), please click the following button to learn more:

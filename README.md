@@ -16,7 +16,7 @@
   
   https://diginote.herokuapp.com/
 
-  ![Image of DigiNote app](./images/diginote.jpg)
+  ![Image of DigiNote app](./Images/diginote.jpg)
 
   ## License
 
